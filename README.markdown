@@ -108,7 +108,7 @@ The result, including the use of the OPENGRAPH_CONFIG options defined above, wou
 
 * `url`: __optional__  
   The canonical URL of your object that will be used as its permanent ID in the graph, e.g., "http://www.imdb.com/title/tt0117500/".
-  Defaults to `request.build_absolute_url()`
+  Defaults to `request.build_absolute_uri()`
 
 * `title`: __required__  
   The title of your object as it should appear within the graph, e.g., "The Rock".  Title should be concise as it may be truncated depending on where it is used (in the NewsFeed, etc).

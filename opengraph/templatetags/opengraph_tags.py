@@ -1,7 +1,5 @@
-import types
 from django import template
 from django.conf import settings
-from django.utils.safestring import SafeUnicode
 from django.core.validators import EMPTY_VALUES
 
 register = template.Library()
@@ -35,10 +33,10 @@ def get_opengraph_attributes(context, kwargs):
     image = kwargs.get('image', None)
     if image in EMPTY_VALUES:
         image = None
-    if isinstance(image, types.ListType):
+    if isinstance(image, list):
         images = [normalize_image_url(request, img) for img in image]
         images.insert(0, default_image)
-    elif isinstance(image, types.StringType) or isinstance(image, SafeUnicode) or isinstance(image, unicode):
+    elif isinstance(image, bytes) or isinstance(image, str):
         images = [normalize_image_url(request, image)]
     graph['images'] = images
     return graph
